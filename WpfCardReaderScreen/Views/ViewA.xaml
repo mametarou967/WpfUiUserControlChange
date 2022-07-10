@@ -5,6 +5,6 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              >
     <Grid>
-        <TextBlock>View A</TextBlock>
+        <Button Command="{Binding ShiyouCommand}" Content="使用" />
     </Grid>
 </UserControl>

@@ -4,11 +4,45 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525">
-    <StackPanel Orientation="Vertical">
-        <StackPanel Orientation="Horizontal">
-            <Button Command="{Binding ShowViewCommand}" CommandParameter="ViewA">Show ViewA</Button>
-            <Button Command="{Binding ShowViewCommand}" CommandParameter="ViewB">Show ViewB</Button>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="80"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Vertical" Grid.Column="0">
+            <Button Command="{Binding ShowViewCommand}" CommandParameter="ViewA" Content="Show ViewA">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Background="Green"
+                    CornerRadius="10">
+                            <ContentPresenter VerticalAlignment="Center"
+                                  HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Command="{Binding ShowViewCommand}" CommandParameter="ViewB" Content="Show ViewB">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Background="Green"
+                    CornerRadius="10">
+                            <ContentPresenter VerticalAlignment="Center"
+                                  HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
-    </StackPanel>
+
+        <Canvas Grid.Column="1">
+            <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        </Canvas>
+    </Grid>
 </Window>
