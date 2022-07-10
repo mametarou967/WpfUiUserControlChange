@@ -19,6 +19,7 @@ namespace WpfCardReaderScreen
         {
             containerRegistry.RegisterForNavigation<ViewA>();
             containerRegistry.RegisterForNavigation<ViewB>();
+            containerRegistry.RegisterForNavigation<ViewSerialCom>();
 
         }
     }

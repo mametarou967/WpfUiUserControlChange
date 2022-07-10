@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Prism.Regions;
+using System.Windows;
 
 namespace WpfCardReaderScreen.Views
 {
@@ -7,9 +8,11 @@ namespace WpfCardReaderScreen.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
+            this.ContentRendered += (s, e) => regionManager.RequestNavigate("ContentRegion", "ViewA");
+
         }
     }
 }
