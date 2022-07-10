@@ -1,9 +1,12 @@
 ﻿<Window x:Class="WpfCardReaderScreen.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525">
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="80"/>
@@ -42,7 +45,15 @@
         </StackPanel>
 
         <Canvas Grid.Column="1">
-            <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+            <ContentControl prism:RegionManager.RegionName="ContentRegion">
+            </ContentControl>
         </Canvas>
     </Grid>
+
+    <!-- レンダリングが完了したタイミングで以下のコマンドを送る -->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <prism:InvokeCommandAction Command="{Binding ContentRenderedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 </Window>

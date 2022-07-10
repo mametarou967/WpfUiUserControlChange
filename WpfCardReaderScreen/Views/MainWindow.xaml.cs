@@ -12,7 +12,7 @@ namespace WpfCardReaderScreen.Views
         {
             InitializeComponent();
             // https://github.com/PrismLibrary/Prism/discussions/2586
-            this.ContentRendered += (s, e) => regionManager.RequestNavigate("ContentRegion", "ViewA");
+            // this.ContentRendered += (s, e) => regionManager.RequestNavigate("ContentRegion", "ViewA");
 
         }
     }
